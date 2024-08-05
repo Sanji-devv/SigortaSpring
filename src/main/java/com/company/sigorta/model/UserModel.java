@@ -1,8 +1,7 @@
 package com.company.sigorta.model;
-
 import jakarta.persistence.*;
-
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "user")
@@ -10,26 +9,29 @@ public class UserModel
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private String name;
-    private String surname;
-    private String email;
+    private Integer userId;
+    private String userName;
+    private String userSurname;
+    private String userEmail;
 
-    public Integer getId() { return id; }
+    @OneToMany(mappedBy = "user")
+    private Set<PolicyModel> policies;
 
-    public void setId(Integer id) { this.id = id; }
+    public Integer getUserId() { return userId; }
 
-    public String getName() { return name; }
+    public void setUserId(Integer id) { this.userId = id; }
 
-    public void setName(String name) { this.name = name; }
+    public String getUserName() { return userName; }
 
-    public String getSurname() { return surname; }
+    public void setUserName(String name) { this.userName = name; }
 
-    public void setSurname(String surname) { this.surname = surname; }
+    public String getUserSurname() { return userSurname; }
 
-    public String getEmail() { return email; }
+    public void setUserSurname(String surname) { this.userSurname = surname; }
 
-    public void setEmail(String email) { this.email = email; }
+    public String getUserEmail() { return userEmail; }
+
+    public void setUserEmail(String email) { this.userEmail = email; }
 
     @Override
     public boolean equals(Object o)
@@ -37,9 +39,9 @@ public class UserModel
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         UserModel userModel = (UserModel) o;
-        return Objects.equals(id, userModel.id) && Objects.equals(name, userModel.name) && Objects.equals(surname, userModel.surname) && Objects.equals(email, userModel.email);
+        return Objects.equals(userId, userModel.userId) && Objects.equals(userName, userModel.userName) && Objects.equals(userSurname, userModel.userSurname) && Objects.equals(userEmail, userModel.userEmail);
     }
 
     @Override
-    public int hashCode() { return Objects.hash(id, name, surname, email); }
+    public int hashCode() { return Objects.hash(userId, userName, userSurname, userEmail); }
 }

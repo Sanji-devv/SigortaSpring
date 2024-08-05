@@ -2,37 +2,37 @@ package com.company.sigorta.dto;
 
 public class UserDto
 {
-    private Integer id;
-    private String name;
-    private String surname;
-    private String email;
+    private Integer userId;
+    private String userName;
+    private String userSurname;
+    private String userEmail;
 
     public UserDto() {}
 
-    public UserDto(Integer id, String name, String surname, String email)
+    public UserDto(Integer userId, String userName, String userSurname, String userEmail)
     {
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.email = email;
+        this.userId = userId;
+        this.userName = userName;
+        this.userSurname = userSurname;
+        this.userEmail = userEmail;
     }
 
-    public Integer getId() { return id; }
+    public Integer getUserId() { return userId; }
 
-    public void setId(Integer id) { this.id = id; }
+    public void setUserId(Integer id) { this.userId = id; }
 
-    public String getName() { return name; }
+    public String getUserName() { return userName; }
 
-    public void setName(String name) { this.name = name; }
+    public void setUserName(String name) { this.userName = name; }
 
-    public String getSurname() { return surname; }
+    public String getUserSurname() { return userSurname; }
 
-    public void setSurname(String surname) { this.surname = surname; }
+    public void setUserSurname(String surname) { this.userSurname = surname; }
 
-    public String getEmail() { return email; }
+    public String getUserEmail() { return userEmail; }
 
-    public void setEmail(String email) { this.email = email; }
+    public void setUserEmail(String email) { this.userEmail = email; }
 
     @Override
-    public String toString() { return String.format("User info ID: %d\nName: %s\nSurname: %s\nEmail: %s", id, name, surname, email); }
+    public String toString() { return String.format("User info ID: %d\nName: %s\nSurname: %s\nEmail: %s", userId, userName, userSurname, userEmail); }
 }

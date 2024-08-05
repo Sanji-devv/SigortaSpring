@@ -1,13 +1,12 @@
 package com.company.sigorta.controller;
-
 import com.company.sigorta.dto.UserDto;
 import com.company.sigorta.model.UserModel;
 import com.company.sigorta.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import java.util.List;
 import java.util.stream.Collectors;
+import java.util.List;
 
 @RestController
 @RequestMapping(path = "/users")
@@ -18,9 +17,9 @@ public class UserController
     @Autowired
     public UserController(UserService userService) { this.userService = userService; }
 
-    private UserDto convertToDTO(UserModel user) { return new UserDto(user.getId(), user.getName(), user.getSurname(), user.getEmail()); }
+    private UserDto convertToDTO(UserModel user) { return new UserDto(user.getUserId(), user.getUserName(), user.getUserSurname(), user.getUserEmail()); }
 
-    @GetMapping("/list")
+    @GetMapping("/list_user")
     public List<UserDto> getUsers()
     {
         return userService.getUsers().stream()
@@ -28,7 +27,7 @@ public class UserController
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/id/{id}")
+    @GetMapping("/user_id/{id}")
     public ResponseEntity<String> getUserById(@PathVariable Integer id)
     {
         try
@@ -44,7 +43,7 @@ public class UserController
         }
     }
 
-    @GetMapping("/name/{name}")
+    @GetMapping("/user_name/{name}")
     public ResponseEntity<String> getUserByName(@PathVariable String name)
     {
         try
@@ -60,7 +59,7 @@ public class UserController
         }
     }
 
-    @GetMapping("/surname/{surname}")
+    @GetMapping("/user_surname/{surname}")
     public ResponseEntity<String> getUserBySurname(@PathVariable String surname)
     {
         try
@@ -76,7 +75,7 @@ public class UserController
         }
     }
 
-    @GetMapping("/email/{email}")
+    @GetMapping("/user_email/{email}")
     public ResponseEntity<String> getUserByEmail(@PathVariable String email)
     {
         try
@@ -92,7 +91,7 @@ public class UserController
         }
     }
 
-    @PostMapping("/add")
+    @PostMapping("/add_user")
     public ResponseEntity<String> addUser(@RequestBody UserModel userModel)
     {
         try
@@ -108,7 +107,7 @@ public class UserController
         }
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/update_user/{id}")
     public ResponseEntity<String> updateUser(@PathVariable Integer id, @RequestBody UserModel userModel)
     {
         try
@@ -124,7 +123,7 @@ public class UserController
         }
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/delete_user/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable Integer id)
     {
         try
