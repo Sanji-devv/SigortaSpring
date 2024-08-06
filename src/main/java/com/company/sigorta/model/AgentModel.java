@@ -1,7 +1,8 @@
 package com.company.sigorta.model;
 import jakarta.persistence.*;
-import java.util.Set;
 import lombok.*;
+
+import java.util.Set;
 
 @Entity
 @Getter
@@ -14,9 +15,8 @@ public class AgentModel
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer agentId;
+    private Integer agentID;
     private String agentName;
-    private String agentSurname;
     private String agentEmail;
     private String agentCode;
 

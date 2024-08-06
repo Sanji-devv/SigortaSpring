@@ -5,8 +5,7 @@ import java.util.Optional;
 
 public interface AgentRepository extends JpaRepository<AgentModel, Integer>
 {
-    Optional<AgentModel> findByAgentName(String agentName);
-    Optional<AgentModel> findByAgentSurname(String agentSurname);
-    Optional<AgentModel> findByAgentEmail(String agentEmail);
-    Optional<AgentModel> findByAgentCode(String agentCode);
+    Optional<AgentModel> findByAgentName(String name);
+    Optional<AgentModel> findByAgentEmail(String email);
+    Optional<AgentModel> findByAgentCode(String code);
 }

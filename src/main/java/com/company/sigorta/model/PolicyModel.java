@@ -1,7 +1,8 @@
 package com.company.sigorta.model;
 import jakarta.persistence.*;
-import java.util.Set;
 import lombok.*;
+
+import java.util.Set;
 
 @Entity
 @Getter
@@ -15,7 +16,7 @@ public class PolicyModel
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer policyId;
+    private Integer policyID;
     private String policyNumber;
     private String policyType;
     private String startDate;

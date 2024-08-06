@@ -13,7 +13,7 @@ public class PaymentModel
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer paymentId;
+    private Integer paymentID;
     private String paymentDate;
     private Double paymentAmount;
     private String paymentType;

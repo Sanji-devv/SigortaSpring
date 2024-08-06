@@ -1,7 +1,8 @@
 package com.company.sigorta.model;
 import jakarta.persistence.*;
-import java.util.Set;
 import lombok.*;
+
+import java.util.Set;
 
 @Entity
 @Getter
@@ -14,7 +15,7 @@ public class ClaimModel
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer claimId;
+    private Integer claimID;
     private String claimNumber;
     private String claimDate;
     private Double claimAmount;

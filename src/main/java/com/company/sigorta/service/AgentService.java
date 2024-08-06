@@ -19,8 +19,6 @@ public class AgentService
 
     public AgentModel getAgentByName(String name) { return agentRepository.findByAgentName(name).orElseThrow(() -> new RuntimeException("Agent not found")); }
 
-    public AgentModel getAgentBySurname(String surname) { return agentRepository.findByAgentSurname(surname).orElseThrow(() -> new RuntimeException("Agent not found")); }
-
     public AgentModel getAgentByEmail(String email) { return agentRepository.findByAgentEmail(email).orElseThrow(() -> new RuntimeException("Agent not found")); }
 
     public AgentModel getAgentByCode(String code) { return agentRepository.findByAgentCode(code).orElseThrow(() -> new RuntimeException("Agent not found")); }
@@ -31,7 +29,6 @@ public class AgentService
     {
         AgentModel existingAgent = getAgentById(id);
         existingAgent.setAgentName(agent.getAgentName());
-        existingAgent.setAgentSurname(agent.getAgentSurname());
         existingAgent.setAgentEmail(agent.getAgentEmail());
         existingAgent.setAgentCode(agent.getAgentCode());
         return agentRepository.save(existingAgent);

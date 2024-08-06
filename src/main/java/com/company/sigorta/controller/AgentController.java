@@ -24,9 +24,6 @@ public class AgentController
     @GetMapping("/agent_name/{name}")
     public ResponseEntity<AgentModel> getAgentByName(@PathVariable String name) { return ResponseEntity.ok(agentService.getAgentByName(name)); }
 
-    @GetMapping("/agent_surname/{surname}")
-    public ResponseEntity<AgentModel> getAgentBySurname(@PathVariable String surname) { return ResponseEntity.ok(agentService.getAgentBySurname(surname)); }
-
     @GetMapping("/agent_email/{email}")
         public ResponseEntity<AgentModel> getAgentByEmail(@PathVariable String email) { return ResponseEntity.ok(agentService.getAgentByEmail(email)); }
 

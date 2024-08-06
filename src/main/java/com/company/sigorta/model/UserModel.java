@@ -1,7 +1,7 @@
 package com.company.sigorta.model;
 import jakarta.persistence.*;
-import java.util.Set;
 import lombok.*;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -10,14 +10,13 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "user")
-
 public class UserModel
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer userId;
+    private Integer userID;
     private String userName;
-    private String userSurname;
+    private String userPassword;
     private String userEmail;
 
     @OneToMany(mappedBy = "user")
