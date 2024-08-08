@@ -15,48 +15,22 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserService implements UserDetailsService {
     private final UserRepository userRepository;
-
+/*
     public void registerNewUser(RegisterDto registerDto) {
         UserModel user = new UserModel();
         user.setUserName(registerDto.getUsername());
         //user.setPassword(passwordEncoder.encode(registerDto.getPassword()));
         user.setUserEmail(registerDto.getUserEmail());
-        user.setName(registerDto.getName());
-        user.setSurname(registerDto.getSurname());
+        user.setFirstName(registerDto.getFirstName());
+        user.setLastName(registerDto.getLastName());
 
         userRepository.save(user);
     }
-
+*/
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return userRepository.findByUserName(username).orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }
-
-/*
-    public void register(UserModel user)
-    {
-        if (userRepository.findByUserName(user.getUserName()) != null)
-        {
-            throw new RuntimeException("Username already exists");
-        }
-        if (user.getPassword().length() < 3)
-        {
-            throw new RuntimeException("Password must be at least 3 characters long");
-        }
-        userRepository.save(user);
-    }
-
-    public UserModel login(String username, String password)
-    {
-        UserModel user = userRepository.findByUserName(username);
-
-        if (user != null && user.getPassword().equals(password))
-        {
-            return user;
-        }
-        throw new RuntimeException("Invalid username or password");
-    }
-*/
 
     public List<UserModel> getUsers() {
         return userRepository.findAll();

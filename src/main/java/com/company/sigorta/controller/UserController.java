@@ -40,42 +40,12 @@ public class UserController {
             return ResponseEntity.ok(user);
         }
     */
-        @PostMapping("/add_user")
-        public ResponseEntity<UserModel> createUser(@RequestBody UserModel userModel) {
-            UserModel createdUser = userService.createUser(userModel);
-            return ResponseEntity.status(201).body(createdUser);
-        }
-    /*
-        @PostMapping("/register")
-        public ResponseEntity<String> register(@RequestBody UserModel userModel)
-        {
-            try
-            {
-                userService.register(userModel);
-                return ResponseEntity.status(201).body("User registered successfully");
-            }
-            catch (RuntimeException e)
-            {
-                return ResponseEntity.badRequest().body(e.getMessage());
-            }
-        }
+    @PostMapping("/add_user")
+    public ResponseEntity<UserModel> createUser(@RequestBody UserModel userModel) {
+        UserModel createdUser = userService.createUser(userModel);
+        return ResponseEntity.status(201).body(createdUser);
+    }
 
-        @PostMapping("/login")
-        public ResponseEntity<UserModel> login(@RequestBody LoginDto loginRequest)
-        {
-            try
-            {
-                UserModel user = userService.login(loginRequest.getUsername(), loginRequest.getPassword());
-                System.out.println("User logged in: " + user);
-                return ResponseEntity.ok(user);
-            }
-            catch (RuntimeException e)
-            {
-                System.out.println("Login failed: " + e.getMessage());
-                return ResponseEntity.badRequest().body(null);
-            }
-        }
-    */
     @PutMapping("/update_user/{id}")
     public ResponseEntity<UserModel> updateUser(@PathVariable Integer id, @RequestBody UserModel userModel) {
         UserModel updatedUser = userService.updateUser(id, userModel);

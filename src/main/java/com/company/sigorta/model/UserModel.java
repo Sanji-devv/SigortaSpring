@@ -26,8 +26,8 @@ public class UserModel implements UserDetails
     private String userName;
     private String password;
     private String userEmail;
-    private String name;
-    private String surname;
+    private String firstName;
+    private String lastName;
 
     @OneToMany(mappedBy = "user")
     private Set<PolicyModel> policies;

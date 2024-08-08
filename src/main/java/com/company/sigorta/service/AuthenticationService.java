@@ -20,8 +20,10 @@
         public UserModel signup(RegisterDto registerDto) {
             UserModel user = UserModel.builder()
                     .userName(registerDto.getUsername())
-                    .userEmail(registerDto.getUserEmail())
                     .password(passwordEncoder.encode(registerDto.getPassword()))
+                    .userEmail(registerDto.getUserEmail())
+                    .firstName(registerDto.getFirstName())
+                    .lastName(registerDto.getLastName())
                     .build();
             return userRepository.save(user);
         }
